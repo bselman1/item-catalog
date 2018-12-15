@@ -6,13 +6,17 @@
 ```
     python -m venv venv
 ```
+- Activate the python virtual environment:
+```
+    venv\scripts\activate.bat
+```
 - Install the required packages:
 ```
     pip install -r requirements.txt
 ```
 
 ## Configuration
-There is a default configuration file 'default_config.py' that will allow the application to run by default but should be updated with values appropriate to your environment.
+There is a default configuration file 'default_config.py' that will allow the application to run by default but should be updated with more appropriate values in a production environment.
 ```
 DEBUG = True
 FLASK_ENV =  'development'
@@ -36,7 +40,7 @@ Normaly the google_secrets.json file wouldn't be included in a git repository as
 ```
    SET FLASK_APP=run.py
 ```
-- Activate the python virtual environment
+- Activate the python virtual environment if not already active
 ```
    venv\scripts\activate.bat
 ```
@@ -44,3 +48,18 @@ Normaly the google_secrets.json file wouldn't be included in a git repository as
 ```
    python -m flask run --no-debugger --no-reload --port 5005
 ```
+- Open a browser and navigate to http://localhost:5005/
+
+## API Endpoints
+
+The following JSON API endpoints are available. Values in <> are dynamic and should be changed by the client application.
+- /api/item/*<item_id>*
+   - e.g. /api/item/1
+   - Pulls back information on a specific item.
+- /api/category/<category_name>
+   - eg. /api/category/Football
+- /api/categories
+   - List of all categories. Note this doesn't pull back the items within the categories.
+   - Pulls back information on a specific category.
+- /api/catalog
+   - The entire catalog of categories with their associated items.

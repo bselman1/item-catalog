@@ -2,6 +2,7 @@ from . import Base
 from sqlalchemy.orm import mapper, relationship
 from sqlalchemy import ForeignKey, MetaData, Table, Column, Integer, String
 
+
 class CategoryItem(Base):
     __tablename__ = 'category_item'
 
@@ -10,8 +11,15 @@ class CategoryItem(Base):
     category_id = Column(Integer, ForeignKey('category.id'), nullable=False)
     description = Column(String, nullable=True)
 
-    category = relationship('Category', back_populates='category_items', lazy='noload')
+    category = relationship(
+        'Category',
+        back_populates='category_items',
+        lazy='noload')
 
     def to_dict(self):
-        item_dict = { 'id': self.id, 'name': self.name, 'description': self.description }
-        return { 'category_item': item_dict }
+        item_dict = {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description
+        }
+        return {'category_item': item_dict}

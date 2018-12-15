@@ -1,4 +1,4 @@
 from .item_forms import (
-     NewItemForm, 
+     NewItemForm,
      EditItemForm
 )
