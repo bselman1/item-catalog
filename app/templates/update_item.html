@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Update Item</h1>
+    <form id="update_item_form" class="item_form" action="" method="POST" role="form">
+        {{ form.csrf_token }}
+        <ul>
+            <li>
+                {{ form.name.label }}
+                {{ form.name }}
+            </li>
+            <li>
+                {{ form.description.label }}
+                {{ form.description }}
+            </li>
+            <li>
+                {{ form.category.label }}
+                {{ form.category }}
+            </li>
+        </ul>
+        {{ form.submit }}
+    </form>
+{% endblock content %}

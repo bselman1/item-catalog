@@ -1,0 +1,7 @@
+DEBUG = True
+FLASK_ENV =  'development'
+SECRET_KEY = 'MUST_OVERRIDE'
+DATABASE_URI = 'sqlite:///item_catalog.db'
+GOOGLE_SECRETS_FILE = './google_secrets.json'
+OAUTHLIB_INSECURE_TRANSPORT = '1'
+OAUTHLIB_RELAX_TOKEN_SCOPE = '1'

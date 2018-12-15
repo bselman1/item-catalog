@@ -1,0 +1,17 @@
+{% extends "categories.html" %}
+
+{% block category_content %}
+
+    <h2>{{ category.name }} Items</h2>
+    <ul class='category-items-list'>
+    {% for item in category.category_items %}
+        <li>
+            <a href="{{ url_for('catalog_item_view', item_id=item.id) }}">{{ item.name }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+    {% if current_user.is_authenticated %}
+        <a class="add-item" href="{{ url_for('new_catalog_item_view') }}">Add new item</a>
+    {% endif %}
+
+{% endblock category_content %}
